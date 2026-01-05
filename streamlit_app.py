@@ -1188,8 +1188,11 @@ def render_llm_studio() -> None:
 
     col1, col2 = st.columns([1.4, 1])
     with col2:
-        default_key = st.secrets.get("GROQ_API_KEY", "")
-        api_key = st.text_input("Groq API key", type="password", value=default_key)
+        api_key = st.secrets.get("GROQ_API_KEY", "")
+        if api_key:
+            st.caption("Groq API key loaded from Streamlit secrets.")
+        else:
+            st.warning("Groq API key not found in Streamlit secrets.")
         model = st.text_input("Model", value="llama-3.1-8b-instant")
         temperature = st.slider("Temperature", 0.0, 1.0, 0.1, 0.05)
         max_tokens = st.slider("Max tokens", 200, 1200, 700, 50)
