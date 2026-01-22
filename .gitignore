@@ -14,3 +14,16 @@ build/
 venv/
 .DS_Store
 .streamlit/secrets.toml
+
+# Publication and Research (Keep Local Only)
+publication/
+paper/
+figures/
+*.pdf
+*.tex
+*.bib
+*.png
+*.svg
+*.PNG
+Springer_Nature_LaTeX_Template__1_.pdf
+methodology figure .PNG
