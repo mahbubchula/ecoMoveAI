@@ -1,0 +1,59 @@
+{
+  "baseline": {
+    "co2_emissions_ton_yr": 12750000,
+    "fuel_cost_usd_yr": 8500000000,
+    "vkt_km_yr": 85000000000
+  },
+  "ai_efficiency_rates": [0.05, 0.10, 0.15, 0.20, 0.25],
+  "policy": {
+    "carbon_price_scenarios": [
+      {
+        "name": "Base Case",
+        "carbon_price_usd_per_ton": 25,
+        "fuel_tax_rate": 0.10,
+        "ai_subsidy_usd_yr": 0,
+        "congestion_charge_usd_yr": 0,
+        "congestion_charge_usd_per_km": null
+      },
+      {
+        "name": "Moderate Policy",
+        "carbon_price_usd_per_ton": 50,
+        "fuel_tax_rate": 0.15,
+        "ai_subsidy_usd_yr": 25000000,
+        "congestion_charge_usd_yr": 50000000,
+        "congestion_charge_usd_per_km": null
+      },
+      {
+        "name": "Ambitious Policy",
+        "carbon_price_usd_per_ton": 100,
+        "fuel_tax_rate": 0.20,
+        "ai_subsidy_usd_yr": 75000000,
+        "congestion_charge_usd_yr": 150000000,
+        "congestion_charge_usd_per_km": null
+      },
+      {
+        "name": "Net-Zero Aligned",
+        "carbon_price_usd_per_ton": 150,
+        "fuel_tax_rate": 0.25,
+        "ai_subsidy_usd_yr": 150000000,
+        "congestion_charge_usd_yr": 300000000,
+        "congestion_charge_usd_per_km": null
+      }
+    ],
+    "ai_implementation_cost_usd_yr": 500000000,
+    "policy_defaults": {
+      "fuel_tax_rate": 0.10,
+      "ai_subsidy_usd_yr": null,
+      "congestion_charge_usd_yr": 0,
+      "congestion_charge_usd_per_km": null
+    }
+  },
+  "assumptions": [
+    "Baseline emissions derived from urban road transport fleet data (2024)",
+    "Fuel costs based on average regional fuel prices and consumption patterns",
+    "AI efficiency rates represent scenario-based improvements from intelligent transport systems",
+    "Carbon prices aligned with international policy trajectories (IEA, World Bank)",
+    "Implementation costs include infrastructure, software, and operational expenses",
+    "Annual evaluation period with static baseline assumptions"
+  ]
+}

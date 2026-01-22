@@ -1,0 +1,5 @@
+policy_scenario_name,carbon_price_usd_per_ton,total_economic_benefit_usd_yr,carbon_cost_savings_usd_yr,fuel_cost_savings_usd_yr,fuel_tax_savings_usd_yr,congestion_charge_savings_usd_yr,emissions_reduced_ton_yr
+Base Case,25.0,822812500.0,47812500.0,1275000000.0,0.0,0.0,1912500.0
+Moderate Policy,50.0,870625000.0,95625000.0,1275000000.0,0.0,0.0,1912500.0
+Ambitious Policy,100.0,966250000.0,191250000.0,1275000000.0,0.0,0.0,1912500.0
+Net-Zero Aligned,150.0,1061875000.0,286875000.0,1275000000.0,0.0,0.0,1912500.0
