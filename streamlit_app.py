@@ -29,315 +29,620 @@ GROQ_USER_AGENT = "EcoMoveAI/1.0"
 
 
 def _apply_theme() -> None:
-    """Apply a premium, policy-grade UI theme with clear hierarchy."""
+    """Apply a premium, sophisticated dark theme with professional aesthetics."""
     st.set_page_config(
-        page_title="EcoMoveAI | Mahbub Hassan",
-        page_icon="AI",
+        page_title="EcoMoveAI | Transport Decarbonization Intelligence",
+        page_icon="🌿",
         layout="wide",
+        initial_sidebar_state="expanded",
     )
     st.markdown(
         """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+        
         :root {
-            --ink: #0b1220;
-            --muted: #54627a;
-            --accent: #06b6d4;
-            --accent-2: #f97316;
-            --accent-3: #22c55e;
-            --accent-soft: #cffafe;
-            --panel: #ffffff;
-            --canvas: #f1f6ff;
-            --border: rgba(15, 23, 42, 0.12);
-            --shadow: 0 20px 38px rgba(15, 23, 42, 0.12);
-            --glow: 0 0 45px rgba(6, 182, 212, 0.25);
+            /* Premium Dark Theme - Sophisticated Navy/Slate */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-elevated: #1a2332;
+            
+            /* Text Colors */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            /* Accent Colors - Emerald/Teal Focus */
+            --accent-primary: #10b981;
+            --accent-secondary: #06b6d4;
+            --accent-tertiary: #8b5cf6;
+            --accent-warning: #f59e0b;
+            --accent-success: #22c55e;
+            --accent-danger: #ef4444;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --gradient-glow: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.1));
+            
+            /* Effects */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 60px rgba(16, 185, 129, 0.2);
+            --border-subtle: 1px solid rgba(148, 163, 184, 0.1);
+            --border-accent: 1px solid rgba(16, 185, 129, 0.3);
+            
+            /* Glassmorphism */
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(148, 163, 184, 0.1);
+            --glass-blur: blur(20px);
         }
+        
+        /* Global Styles */
         html, body, [class*="css"] {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--ink);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
         }
+        
+        /* Main Container Background */
+        .stApp {
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(ellipse at 20% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+        }
+        
         .appview-container {
-            background:
-                radial-gradient(circle at 15% 10%, rgba(6, 182, 212, 0.18), transparent 42%),
-                radial-gradient(circle at 85% 15%, rgba(249, 115, 22, 0.18), transparent 40%),
-                radial-gradient(circle at 70% 85%, rgba(34, 197, 94, 0.12), transparent 45%),
-                linear-gradient(180deg, #f8fbff 0%, #eef6ff 60%, #f6fbff 100%);
-            background-size: 140% 140%;
-            animation: gradientShift 18s ease infinite;
+            background: transparent;
         }
-        .block-container {
-            padding-top: 2.2rem;
-            padding-bottom: 3rem;
+        
+        .main .block-container {
+            padding: 2rem 3rem 4rem 3rem;
+            max-width: 1400px;
         }
-        .hero {
+        
+        /* Hero Section */
+        .hero-section {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1.2rem;
-            align-items: stretch;
-            animation: fadeIn 0.8s ease both;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            animation: slideUp 0.6s ease-out;
         }
-        @media (max-width: 900px) {
-            .hero { grid-template-columns: 1fr; }
+        
+        @media (max-width: 1024px) {
+            .hero-section { grid-template-columns: 1fr; }
         }
-        .brand-card {
+        
+        .hero-main {
             position: relative;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), #f0f7ff);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 16px;
-            padding: 1.5rem 1.8rem;
-            box-shadow: var(--shadow), var(--glow);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: var(--border-subtle);
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
             overflow: hidden;
         }
-        .brand-card::before {
+        
+        .hero-main::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
-            height: 4px;
-            width: 100%;
-            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
         }
-        .brand-card::after {
+        
+        .hero-main::after {
             content: "";
             position: absolute;
-            top: -60px;
-            right: -40px;
-            width: 160px;
-            height: 160px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.35), transparent 70%);
-            opacity: 0.9;
-            animation: glowPulse 6s ease-in-out infinite;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15), transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
         }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+        
         .hero-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-top: 0.4rem;
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
         }
-        .hero-subtitle {
-            color: var(--muted);
-            font-size: 1rem;
-            margin-top: 0.4rem;
-        }
+        
         .hero-tagline {
-            color: var(--ink);
-            font-size: 1.05rem;
-            margin-top: 0.6rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
         }
-        .hero-meta {
-            color: var(--muted);
+        
+        .hero-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .hero-author {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1.25rem;
+            padding: 8px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 100px;
             font-size: 0.85rem;
-            margin-top: 0.8rem;
+            color: var(--text-secondary);
         }
-        .hero-panel {
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 16px;
-            padding: 1.2rem 1.4rem;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(8px);
+        
+        .hero-author-avatar {
+            width: 28px;
+            height: 28px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: white;
         }
-        .hero-panel h4 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1rem;
+        
+        /* Scope Panel */
+        .scope-panel {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.5rem;
         }
-        .hero-panel ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-            color: var(--muted);
-        }
-        .hero-panel li {
-            padding: 0.3rem 0;
+        
+        .scope-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: linear-gradient(120deg, rgba(6, 182, 212, 0.2), rgba(34, 197, 94, 0.2));
-            border: 1px solid rgba(6, 182, 212, 0.35);
-            color: #0b3550;
-            font-size: 0.78rem;
-            font-weight: 600;
+        
+        .scope-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-        .icon-inline {
-            width: 14px;
-            height: 14px;
-            display: inline-flex;
+        
+        .scope-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .scope-item:last-child {
+            border-bottom: none;
+        }
+        
+        .scope-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            flex: 0 0 auto;
-            color: var(--accent);
+            border-radius: 10px;
+            font-size: 1rem;
         }
-        .icon-inline svg {
-            width: 14px;
-            height: 14px;
-            stroke: currentColor;
+        
+        .scope-icon.emerald { background: rgba(16, 185, 129, 0.15); }
+        .scope-icon.cyan { background: rgba(6, 182, 212, 0.15); }
+        .scope-icon.violet { background: rgba(139, 92, 246, 0.15); }
+        .scope-icon.amber { background: rgba(245, 158, 11, 0.15); }
+        
+        /* Section Styling */
+        .section-header {
+            margin-bottom: 1rem;
         }
-        .icon-accent-2 { color: var(--accent-2); }
-        .icon-accent-3 { color: var(--accent-3); }
+        
         .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--ink);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .section-helper {
-            color: var(--muted);
+        
+        .section-title-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.15);
+            border-radius: 8px;
             font-size: 0.9rem;
-            margin-bottom: 0.8rem;
         }
-        .metric-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 0.8rem;
+        
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
-        .metric-card {
-            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-            border: 1px solid rgba(6, 182, 212, 0.14);
-            border-radius: 14px;
-            padding: 0.9rem 1rem;
-            box-shadow: var(--shadow);
-            animation: fadeUp 0.6s ease both;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        
+        /* Process Flow */
+        .process-flow {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
         }
-        .metric-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 22px 40px rgba(15, 23, 42, 0.16);
+        
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
-        .metric-label {
-            font-size: 0.78rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .metric-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.3rem;
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: var(--bg-tertiary);
+            border: var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-top: 0.4rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
         }
-        .metric-unit {
-            font-size: 0.75rem;
-            color: var(--muted);
-            margin-top: 0.2rem;
+        
+        .flow-step:hover {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
         }
-        .flow-card {
-            position: relative;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), #f1fbff);
-            border: 1px solid rgba(6, 182, 212, 0.18);
+        
+        .flow-step.active {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .flow-step-icon {
+            font-size: 1.1rem;
+        }
+        
+        .flow-arrow {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        
+        /* Metric Cards */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .metric-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: var(--border-subtle);
             border-radius: 16px;
-            padding: 1rem 1.2rem;
-            box-shadow: var(--shadow);
+            padding: 1.25rem 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
         }
-        .flow-card::after {
+        
+        .metric-card::before {
             content: "";
             position: absolute;
-            inset: auto -30% -80% -30%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.18), transparent 60%);
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .flow-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.8rem;
+        
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: var(--shadow-glow);
         }
-        .flow-step {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0.6rem 0.9rem;
-            border-radius: 999px;
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            background: #f8fdff;
+        
+        .metric-card:hover::before {
+            opacity: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.7rem;
             font-weight: 600;
-            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
         }
-        .flow-step svg {
-            width: 14px;
-            height: 14px;
-            stroke: currentColor;
+        
+        .metric-value {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
         }
-        .flow-step.active {
-            background: linear-gradient(120deg, var(--accent), var(--accent-3));
-            color: #ffffff;
-            border-color: transparent;
-            box-shadow: var(--glow);
-            animation: pulseGlow 2.2s ease-in-out infinite;
+        
+        .metric-unit {
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
-        .flow-line {
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(6, 182, 212, 0.2), rgba(34, 197, 94, 0.3));
-            min-width: 40px;
-        }
-        .step-card {
-            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-            border: 1px solid rgba(6, 182, 212, 0.16);
-            border-radius: 14px;
-            padding: 1rem 1.2rem;
+        
+        /* Cards and Panels */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            border: var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
             margin-bottom: 1rem;
-            box-shadow: var(--shadow);
         }
-        .stButton>button {
-            background: linear-gradient(120deg, var(--accent), var(--accent-2));
-            color: #ffffff;
-            border: none;
-            padding: 0.6rem 1.4rem;
-            border-radius: 999px;
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1rem;
             font-weight: 600;
-            box-shadow: 0 12px 24px rgba(6, 182, 212, 0.25);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            color: var(--text-primary);
         }
-        .stButton>button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 28px rgba(6, 182, 212, 0.32);
-            color: #ffffff;
+        
+        /* Buttons */
+        .stButton > button {
+            background: var(--gradient-primary) !important;
+            color: white !important;
+            border: none !important;
+            padding: 0.75rem 2rem !important;
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25) !important;
+            transition: all 0.3s ease !important;
         }
+        
+        .stButton > button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.35) !important;
+        }
+        
+        .stButton > button:active {
+            transform: translateY(0) !important;
+        }
+        
+        /* Tabs */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 8px;
+            background: var(--bg-secondary);
+            padding: 6px;
+            border-radius: 14px;
+        }
+        
         .stTabs [data-baseweb="tab"] {
-            font-weight: 600;
-            color: var(--muted);
-            background: rgba(148, 163, 184, 0.25);
-            border-radius: 10px 10px 0 0;
-            margin-right: 6px;
-            padding: 8px 14px;
+            background: transparent !important;
+            border-radius: 10px !important;
+            padding: 10px 20px !important;
+            font-weight: 600 !important;
+            color: var(--text-muted) !important;
+            border: none !important;
         }
+        
         .stTabs [aria-selected="true"] {
-            color: var(--ink);
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-bottom: 3px solid var(--accent);
-            box-shadow: 0 -10px 20px rgba(6, 182, 212, 0.12);
+            background: var(--gradient-primary) !important;
+            color: white !important;
         }
-        @keyframes gradientShift {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 90% 70%; }
-            100% { background-position: 0% 0%; }
+        
+        .stTabs [data-baseweb="tab-panel"] {
+            padding: 1.5rem 0;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        /* Input Fields */
+        .stTextInput > div > div > input,
+        .stNumberInput > div > div > input,
+        .stTextArea > div > div > textarea,
+        .stSelectbox > div > div > div {
+            background: var(--bg-secondary) !important;
+            border: 1px solid rgba(148, 163, 184, 0.15) !important;
+            border-radius: 10px !important;
+            color: var(--text-primary) !important;
+            padding: 0.75rem 1rem !important;
         }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .stTextInput > div > div > input:focus,
+        .stNumberInput > div > div > input:focus,
+        .stTextArea > div > div > textarea:focus {
+            border-color: var(--accent-primary) !important;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
         }
-        @keyframes glowPulse {
-            0% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(6px); opacity: 1; }
-            100% { transform: translateY(0); opacity: 0.6; }
+        
+        .stTextInput label,
+        .stNumberInput label,
+        .stTextArea label,
+        .stSelectbox label {
+            color: var(--text-secondary) !important;
+            font-weight: 500 !important;
         }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 rgba(6, 182, 212, 0.0); }
-            50% { box-shadow: 0 0 22px rgba(6, 182, 212, 0.35); }
-            100% { box-shadow: 0 0 0 rgba(6, 182, 212, 0.0); }
+        
+        /* Data Editor / Tables */
+        .stDataFrame {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        [data-testid="stDataFrameResizable"] {
+            background: var(--bg-secondary);
+            border: var(--border-subtle);
+            border-radius: 12px;
+        }
+        
+        /* Sidebar */
+        [data-testid="stSidebar"] {
+            background: var(--bg-secondary) !important;
+            border-right: 1px solid rgba(148, 163, 184, 0.1) !important;
+        }
+        
+        [data-testid="stSidebar"] .stMarkdown {
+            color: var(--text-secondary);
+        }
+        
+        /* Expander */
+        .streamlit-expanderHeader {
+            background: var(--bg-tertiary) !important;
+            border-radius: 12px !important;
+            color: var(--text-primary) !important;
+            font-weight: 600 !important;
+        }
+        
+        .streamlit-expanderContent {
+            background: var(--bg-secondary) !important;
+            border: var(--border-subtle) !important;
+            border-top: none !important;
+            border-radius: 0 0 12px 12px !important;
+        }
+        
+        /* Charts */
+        .js-plotly-plot .plotly .main-svg {
+            background: transparent !important;
+        }
+        
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+        
+        /* Hide Streamlit Elements */
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        
+        /* Status Messages */
+        .stSuccess {
+            background: rgba(34, 197, 94, 0.1) !important;
+            border: 1px solid rgba(34, 197, 94, 0.3) !important;
+            border-radius: 12px !important;
+        }
+        
+        .stError {
+            background: rgba(239, 68, 68, 0.1) !important;
+            border: 1px solid rgba(239, 68, 68, 0.3) !important;
+            border-radius: 12px !important;
+        }
+        
+        .stWarning {
+            background: rgba(245, 158, 11, 0.1) !important;
+            border: 1px solid rgba(245, 158, 11, 0.3) !important;
+            border-radius: 12px !important;
+        }
+        
+        .stInfo {
+            background: rgba(6, 182, 212, 0.1) !important;
+            border: 1px solid rgba(6, 182, 212, 0.3) !important;
+            border-radius: 12px !important;
         }
         </style>
         """,
@@ -410,7 +715,7 @@ def _metric_card_html(label: str, value_text: str, unit: str) -> str:
     return (
         "<div class=\"metric-card\">"
         f"<div class=\"metric-label\">{label}</div>"
-        f"<div class=\"metric-number\">{value_text}</div>"
+        f"<div class=\"metric-value\">{value_text}</div>"
         f"<div class=\"metric-unit\">{unit}</div>"
         "</div>"
     )
@@ -456,13 +761,13 @@ def _display_exec_panel(summary: dict[str, Any], payload: dict[str, Any]) -> Non
     animate = st.session_state.get("last_summary_signature") != signature
     st.session_state.last_summary_signature = signature
 
-    st.markdown("<div class=\"section-title\">Executive Intelligence Panel</div>", unsafe_allow_html=True)
+    st.markdown("<div class=\"section-title\"><span class=\"section-title-icon\">📈</span> Executive Intelligence Panel</div>", unsafe_allow_html=True)
     st.markdown(
-        "<div class=\"section-helper\">Key indicators summarizing baseline conditions and scenario outcomes.</div>",
+        "<div class=\"section-subtitle\">Key indicators summarizing baseline conditions and scenario outcomes.</div>",
         unsafe_allow_html=True,
     )
 
-    st.markdown("<div class=\"metric-grid\">", unsafe_allow_html=True)
+    st.markdown("<div class=\"metrics-grid\">", unsafe_allow_html=True)
     _render_metric_card(
         "Baseline CO2",
         _format_number(baseline_co2, 1),
@@ -699,56 +1004,44 @@ def render_header() -> None:
     """Header establishes product identity and scope for credibility."""
     st.markdown(
         """
-        <div class="hero">
-            <div class="brand-card">
-                <div class="chip">
-                    <span class="icon-inline" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.364-6.364l-2.121 2.121M8.757 15.243l-2.121 2.121m0-12.728l2.121 2.121m8.486 8.486l2.121 2.121" />
-                        </svg>
-                    </span>
-                    AI policy intelligence
+        <div class="hero-section">
+            <div class="hero-main">
+                <div class="hero-badge">
+                    🌿 AI Policy Intelligence Platform
                 </div>
                 <div class="hero-title">EcoMoveAI</div>
-                <div class="hero-tagline">AI-Enabled Economic Evaluation of Transport Decarbonization Policies</div>
-                <div class="hero-subtitle">Policy-grade decision support for transport decarbonization</div>
-                <div class="hero-meta">Mahbub Hassan</div>
+                <div class="hero-tagline">
+                    AI-Enabled Economic Evaluation of Transport Decarbonization Policies
+                </div>
+                <div class="hero-description">
+                    Policy-grade decision support system for analyzing the economic impacts of 
+                    AI-enabled efficiency improvements in road transport CO₂ emissions.
+                </div>
+                <div class="hero-author">
+                    <div class="hero-author-avatar">MH</div>
+                    <span>Mahbub Hassan • Chulalongkorn University</span>
+                </div>
             </div>
-            <div class="hero-panel">
-                <h4>Scope</h4>
-                <ul>
-                    <li>
-                        <span class="icon-inline icon-accent-2" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 01.553-.894L9 2m0 18l6-3m-6 3V2m6 15l5.447-2.724A1 1 0 0021 13.382V4.618a1 1 0 00-.553-.894L15 1m0 16V1m0 0L9 4" />
-                            </svg>
-                        </span>
-                        Road transport only
+            <div class="scope-panel">
+                <div class="scope-title">
+                    📋 Analysis Scope
+                </div>
+                <ul class="scope-list">
+                    <li class="scope-item">
+                        <div class="scope-icon emerald">🚗</div>
+                        <span>Road transport only</span>
                     </li>
-                    <li>
-                        <span class="icon-inline icon-accent-3" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 16.5a4.5 4.5 0 00-4.5-4.5h-.75a6 6 0 10-11.25 2.25A4 4 0 006 22h9a5 5 0 005-5.5z" />
-                            </svg>
-                        </span>
-                        CO2 only
+                    <li class="scope-item">
+                        <div class="scope-icon cyan">☁️</div>
+                        <span>CO₂ emissions focus</span>
                     </li>
-                    <li>
-                        <span class="icon-inline" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 6v6l4 2" />
-                                <circle cx="12" cy="12" r="8" />
-                            </svg>
-                        </span>
-                        Annual static evaluation
+                    <li class="scope-item">
+                        <div class="scope-icon violet">📅</div>
+                        <span>Annual static evaluation</span>
                     </li>
-                    <li>
-                        <span class="icon-inline icon-accent-2" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 3v2m6-2v2m-6 14v2m6-2v2M4 9H2m2 6H2m20-6h-2m2 6h-2M6 6h12v12H6z" />
-                            </svg>
-                        </span>
-                        Scenario-based AI efficiency
+                    <li class="scope-item">
+                        <div class="scope-icon amber">🤖</div>
+                        <span>Scenario-based AI efficiency</span>
                     </li>
                 </ul>
             </div>
@@ -760,41 +1053,28 @@ def render_header() -> None:
 
 def render_flow_section() -> None:
     """Explain the analytical chain from baseline to policy outcome."""
-    st.markdown("<div class=\"section-title\">AI - Economics - Policy Flow</div>", unsafe_allow_html=True)
-    st.markdown(
-        "<div class=\"section-helper\">How the system transforms inputs into policy-relevant insights.</div>",
-        unsafe_allow_html=True,
-    )
     st.markdown(
         """
-            <div class="flow-card">
-            <div class="flow-row">
+        <div class="process-flow">
+            <div class="flow-container">
                 <div class="flow-step active">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" />
-                    </svg>
-                    Baseline
+                    <span class="flow-step-icon">📊</span>
+                    Baseline Data
                 </div>
-                <div class="flow-line"></div>
+                <span class="flow-arrow">→</span>
                 <div class="flow-step">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M13 3L4 14h7l-1 7 9-11h-7z" />
-                    </svg>
-                    AI efficiency
+                    <span class="flow-step-icon">🤖</span>
+                    AI Efficiency
                 </div>
-                <div class="flow-line"></div>
+                <span class="flow-arrow">→</span>
                 <div class="flow-step">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M4 19V5m5 14V9m5 10V7m5 12V11" />
-                    </svg>
-                    Economic valuation
+                    <span class="flow-step-icon">💰</span>
+                    Economic Valuation
                 </div>
-                <div class="flow-line"></div>
+                <span class="flow-arrow">→</span>
                 <div class="flow-step">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 3l8 4v5c0 5-3.5 9-8 11-4.5-2-8-6-8-11V7l8-4z" />
-                    </svg>
-                    Policy outcome
+                    <span class="flow-step-icon">🎯</span>
+                    Policy Outcome
                 </div>
             </div>
         </div>
